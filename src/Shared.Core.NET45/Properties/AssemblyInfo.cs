@@ -34,3 +34,8 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: TypeForwardedToAttribute(typeof(System.ComponentModel.DataAnnotations.IValidatableObject))]
+[assembly: TypeForwardedToAttribute(typeof(System.ComponentModel.DataAnnotations.ValidationContext))]
+[assembly: TypeForwardedToAttribute(typeof(System.ComponentModel.DataAnnotations.ValidationResult))]
+
+[assembly: TypeForwardedToAttribute(typeof(System.SerializableAttribute))]
