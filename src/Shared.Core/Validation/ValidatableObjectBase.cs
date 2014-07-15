@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
 using FluentValidation.Results;
+using System.ComponentModel.DataAnnotations;
 using ValidationResult = System.ComponentModel.DataAnnotations.ValidationResult;
 
 namespace Shared.Core.Validation
@@ -20,27 +20,28 @@ namespace Shared.Core.Validation
 
         public FluentValidation.Results.ValidationResult Validate()
         {
-            var validationResult = ValidationEngine.Validate(GetType(), this);
+            return null;
+            //var validationResult = ValidationEngine.Validate(GetType(), this);
 
-            if (validationResult == null || validationResult.Errors == null)
-            {
-                return new FluentValidation.Results.ValidationResult();
-            }
+            //if (validationResult == null || validationResult.Errors == null)
+            //{
+            //    return new FluentValidation.Results.ValidationResult();
+            //}
 
-            return validationResult;
+            //return validationResult;
         }
 
-        public FluentValidation.Results.ValidationResult Validate(object additonalContext)
-        {
-            var validationResult = ValidationEngine.Validate(GetType(), this, additonalContext);
+        //public FluentValidation.Results.ValidationResult Validate(object additonalContext)
+        //{
+        //    var validationResult = ValidationEngine.Validate(GetType(), this, additonalContext);
 
-            if (validationResult == null || validationResult.Errors == null)
-            {
-                return new FluentValidation.Results.ValidationResult();
-            }
+        //    if (validationResult == null || validationResult.Errors == null)
+        //    {
+        //        return new FluentValidation.Results.ValidationResult();
+        //    }
 
-            return validationResult;
-        }
+        //    return validationResult;
+        //}
     }
 
     public static class ValidatableObjectBaseExtension

@@ -3,6 +3,7 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace System.ComponentModel.DataAnnotations
 {

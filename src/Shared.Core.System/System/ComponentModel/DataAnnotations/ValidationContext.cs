@@ -4,12 +4,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 namespace System.ComponentModel.DataAnnotations
 {
     // Summary:
     //     Describes the context in which a validation check is performed.
-    public sealed class ValidationContext
+     public sealed class ValidationContext
     {
     }
 }

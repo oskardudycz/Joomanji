@@ -107,10 +107,6 @@
     <Compile Include="Resources\ValidationResources.Designer.cs" />
     <Compile Include="Services\ICRUDService.cs" />
     <Compile Include="Services\IService.cs" />
-    <Compile Include="System\ComponentModel\DataAnnotations\IValidatableObject.cs" />
-    <Compile Include="System\ComponentModel\DataAnnotations\ValidationContext.cs" />
-    <Compile Include="System\ComponentModel\DataAnnotations\ValidationResult.cs" />
-    <Compile Include="System\SerializableAttribute.cs" />
     <Compile Include="Utils\Assemblies\AssembliesProvider.cs" />
     <Compile Include="Utils\Coding\Switch.cs" />
     <Compile Include="Utils\Collections\CollectionToCSVConverter.cs" />
@@ -161,6 +157,12 @@
     <Folder Include="Configurations\" />
     <Folder Include="Utils\Cryptography\" />
     <Folder Include="Validation\Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared.Core.System\Shared.Core.System.csproj">
+      <Project>{6092ecc1-9117-489b-874d-16649ab20b4e}</Project>
+      <Name>Shared.Core.System</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
