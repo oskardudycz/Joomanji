@@ -2,6 +2,7 @@
 using FluentValidation;
 using FluentValidation.Attributes;
 using ValidationResult = FluentValidation.Results.ValidationResult;
+using System.ComponentModel.DataAnnotations;
 
 namespace Shared.Core.Validation
 {
@@ -36,23 +37,23 @@ namespace Shared.Core.Validation
             }
         }
 
-        //public static ValidationResult Validate<T>(T obj) where T : IValidatableObject
-        //{
-        //    return Validate(typeof(T), obj);
-        //}
+        public static ValidationResult Validate<T>(T obj) where T : IValidatableObject
+        {
+            return Validate(typeof(T), obj);
+        }
 
-        //internal static ValidationResult Validate(Type type, IValidatableObject obj)
-        //{
-        //    var validator = GetValidator(type);
+        internal static ValidationResult Validate(Type type, IValidatableObject obj)
+        {
+            var validator = GetValidator(type);
 
-        //    return validator != null ? validator.Validate(obj) : new ValidationResult();
-        //}
+            return validator != null ? validator.Validate(obj) : new ValidationResult();
+        }
 
-        //internal static ValidationResult Validate(Type type, IValidatableObject obj, object additionalValue)
-        //{
-        //    var validator = GetValidator(type, additionalValue);
+        internal static ValidationResult Validate(Type type, IValidatableObject obj, object additionalValue)
+        {
+            var validator = GetValidator(type, additionalValue);
 
-        //    return validator != null ? validator.Validate(obj) : new ValidationResult();
-        //}
+            return validator != null ? validator.Validate(obj) : new ValidationResult();
+        }
     }
 }

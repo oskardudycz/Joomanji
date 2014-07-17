@@ -20,28 +20,27 @@ namespace Shared.Core.Validation
 
         public FluentValidation.Results.ValidationResult Validate()
         {
-            return null;
-            //var validationResult = ValidationEngine.Validate(GetType(), this);
+            var validationResult = ValidationEngine.Validate(GetType(), this);
 
-            //if (validationResult == null || validationResult.Errors == null)
-            //{
-            //    return new FluentValidation.Results.ValidationResult();
-            //}
+            if (validationResult == null || validationResult.Errors == null)
+            {
+                return new FluentValidation.Results.ValidationResult();
+            }
 
-            //return validationResult;
+            return validationResult;
         }
 
-        //public FluentValidation.Results.ValidationResult Validate(object additonalContext)
-        //{
-        //    var validationResult = ValidationEngine.Validate(GetType(), this, additonalContext);
+        public FluentValidation.Results.ValidationResult Validate(object additonalContext)
+        {
+            var validationResult = ValidationEngine.Validate(GetType(), this, additonalContext);
 
-        //    if (validationResult == null || validationResult.Errors == null)
-        //    {
-        //        return new FluentValidation.Results.ValidationResult();
-        //    }
+            if (validationResult == null || validationResult.Errors == null)
+            {
+                return new FluentValidation.Results.ValidationResult();
+            }
 
-        //    return validationResult;
-        //}
+            return validationResult;
+        }
     }
 
     public static class ValidatableObjectBaseExtension
