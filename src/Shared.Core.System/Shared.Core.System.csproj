@@ -36,10 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="Shared.Core.System.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="System\ComponentModel\DataAnnotations\IValidatableObject.cs" />
     <Compile Include="System\ComponentModel\DataAnnotations\ValidationContext.cs" />
