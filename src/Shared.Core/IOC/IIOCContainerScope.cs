@@ -8,5 +8,7 @@ namespace Shared.Core.IOC
 {
     public interface IIOCContainerScope : IIOCContainer, IDisposable
     {
+        void Bind<TInterface, TConcrete>() where TConcrete : TInterface;
+        void Bind<TInterface, TConcrete>(TConcrete constant) where TConcrete : TInterface;
     }
 }

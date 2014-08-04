@@ -66,10 +66,11 @@
     <Compile Include="IOC\Attributtes\InjectInRequestScopeAttribute.cs" />
     <Compile Include="IOC\Attributtes\InjectInSingletonScopeAttribute.cs" />
     <Compile Include="IOC\Attributtes\NotInjectedWithConventionsAttribute.cs" />
+    <Compile Include="IOC\Builder\IIOCContainerBuilder.cs" />
+    <Compile Include="IOC\Builder\IOCContainerBuilderBase.cs" />
     <Compile Include="IOC\IDisposableAtEndOfRequest.cs" />
     <Compile Include="IOC\IIOCContainer.cs" />
     <Compile Include="IOC\IIOCContainerScope.cs" />
-    <Compile Include="IOC\IIOCContainerScopeProvider.cs" />
     <Compile Include="IOC\IOCContainer.cs" />
     <Compile Include="Mappings\IMappingDefinition.cs" />
     <Compile Include="Modules\Attributtes\ProjectAssemblyAttribute.cs" />

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Shared.Core.IOC;
 
 namespace Shared.Core.IOC.Attributtes
 {

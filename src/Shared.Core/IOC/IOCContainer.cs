@@ -1,49 +1,49 @@
 ﻿using Shared.Core.Context;
+using Shared.Core.IOC.Attributtes;
 using System;
 using System.Collections.Generic;
 
 namespace Shared.Core.IOC
 {
-    public abstract class IOCContainer : IIOCContainer
+    [NotInjectedWithConventions]
+    public class IOCContainer : IIOCContainer
     {
-        public static IIOCContainer Instance;
+        public static IIOCContainer Instance { get; private set; }
 
-        private static IIOCContainerScopeProvider _scopeProvider;
-
-        private const string ValuesComponents = "Components";
+        private IOCContainer(IIOCContainerScope scope)
+        {
+            ContainerScope = scope;
+        }
 
         /// <summary>
         /// Gets container to resolve components from.
         /// </summary>
-        private static IIOCContainerScope Components { get; set; }
+        private IIOCContainerScope ContainerScope { get; set; }
 
-        public static void Initialize(IIOCContainerScopeProvider scopeProvider)
+        public static void Initialize(IIOCContainerScope scope)
         {
-            _scopeProvider = scopeProvider;
-
-            Components = scopeProvider.BeginScope();
-
-            Instance = Components.Resolve<IIOCContainer>();
+            Instance = new IOCContainer(scope);
+            scope.Bind<IIOCContainer, IOCContainer>((IOCContainer)Instance);
         }
 
         public virtual T Resolve<T>()
         {
-            return Components.Resolve<T>();
+            return ContainerScope.Resolve<T>();
         }
 
         public virtual IEnumerable<T> ResolveAll<T>()
         {
-            return Components.ResolveAll<T>();
+            return ContainerScope.ResolveAll<T>();
         }
 
         public virtual object Resolve(Type t)
         {
-            return Components.Resolve(t);
+            return ContainerScope.Resolve(t);
         }
 
         public virtual T ResolveKeyed<T>(object t)
         {
-            return Components.ResolveKeyed<T>(t);
+            return ContainerScope.ResolveKeyed<T>(t);
         }
     }
 }
