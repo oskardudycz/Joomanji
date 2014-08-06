@@ -1,9 +1,12 @@
 ﻿using Ninject;
+using Ninject.Modules;
 using Shared.Core.IOC;
 using Shared.Core.IOC.Attributtes;
+using Shared.Core.Modules;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -63,6 +66,21 @@ namespace Shared.Core.NET45.IOC.Concrete
         public void Bind<TInterface, TConcrete>(TConcrete constant) where TConcrete : TInterface
         {
             _activationBlock.Bind<TInterface>().ToConstant<TConcrete>(constant);
+        }
+
+        public void Load(params Assembly[] assemblies)
+        {
+            _activationBlock.Load(assemblies);
+        }
+
+        public void Load(params IModule[] module)
+        {
+            _activationBlock.Load(module.Cast<INinjectModule>().ToArray());
+        }
+
+        public IList<IModule> GetLoadedModules()
+        {
+            return _activationBlock.GetModules().OfType<IModule>().ToList();
         }
     }
 }

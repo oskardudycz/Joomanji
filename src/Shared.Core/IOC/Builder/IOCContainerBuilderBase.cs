@@ -29,16 +29,12 @@ namespace Shared.Core.IOC.Builder
         private void LoadModules(IIOCContainerScope scope)
         {
             var modules = scope.ResolveAll<IModule>();
-            var currentlyLoadedModulesNames = GetCurrentlyLoadedModulesNames();
+            var currentlyLoadedModulesNames = scope.GetLoadedModules().Select(el=>el.Name).ToList();
 
             var notLoadedModules = modules.Where(el => !currentlyLoadedModulesNames.Contains(el.Name)).ToList();
 
-            LoadModules(notLoadedModules);
+            scope.Load(modules.ToArray());
         }
-
-        protected abstract IList<string> GetCurrentlyLoadedModulesNames();
-
-        protected abstract void LoadModules(IList<IModule> modules);
 
         protected abstract void SetConventions(IIOCContainerScope scope);        
     }
